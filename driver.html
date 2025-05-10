@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Registration</title>
+    <link rel="stylesheet" href="carrusCSS/car.css">
+    <link rel="stylesheet" href="carrusCSS/driver.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar2">
+            <h1 style="
+ 
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: white; /* Blue */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: "Underdog", system-ui;
+">
+  Carr<span style="color: #335778;">Us</span>
+</h1>
+        </div>
+        <div class="nav-links">
+            <a href="./home.html">Back</a>
+        </div>
+    </nav>
+
+    <div class="driver-page">
+        <!-- Driver Registration Form -->
+        <div class="driver-form">
+            <h2 id="form-title">Driver Registration</h2>
+            <form id="driver-registration-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="license-number">License Number</label>
+                    <input type="text" name="licenseNumber" id="license-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="license-class">License Class</label>
+                    <select name="licenseClass" id="license-class" required>
+                        <option value="">-- Select License Class --</option>
+                        <option value="LMV">LMV (Light Motor Vehicle)</option>
+                        <option value="MCWG">MCWG (Motorcycle With Gear)</option>
+                        <option value="HMV">HMV (Heavy Motor Vehicle)</option>
+                        <option value="LMV-NT">LMV-NT (Light Motor Vehicle - Non Transport)</option>
+                        <option value="TR">TR (Transport)</option>
+                    </select>
+                    
+
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    
+        <!-- Driver List -->
+        <div id="drivers-container" class="drivers-list">
+            <h3>Registered Drivers</h3>
+            <ul></ul>
+        </div>
+    </div>
+    <script src="driver.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review - CARRUS</title>
+  <link rel="stylesheet" href="carrusCSS/demo.css" />
+  <link rel="stylesheet" href="carrusCSS/reviewform.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo ps-3 m-2 ms-5">
+      <h1 style="
+      font-family: "Underdog", system-ui;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #9fc2e7; /* Blue */
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    ">
+      Carr<span style="color: #335778;">Us</span>
+    </div>
+    <ul class="navbar-links" id="primary-navigation">
+      <li><a href="./home.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="container mt-4">
+    <div class="row">
+      <!-- Review Form -->
+      <div class="col-md-5 mb-4">
+        <div class="form-container">
+          <form id="review-form" onsubmit="submitReview(event)">
+            <h4 class="text-center mb-3">Leave a Review</h4>
+            <textarea class="form-control mb-3" id="review-text" name="review" rows="5" placeholder="Add your review here" required></textarea>
+            
+            <!-- Star Rating -->
+            <div class="star-rating text-center mb-3" id="star-rating">
+              <label class="mb-1 fw-bold">Rate Us:</label><br>
+              <span class="fa fa-star" data-value="1"></span>
+              <span class="fa fa-star" data-value="2"></span>
+              <span class="fa fa-star" data-value="3"></span>
+              <span class="fa fa-star" data-value="4"></span>
+              <span class="fa fa-star" data-value="5"></span>
+            </div>
+            <input type="hidden" id="rating" name="rating" required />
+
+            <div class="text-center">
+              <button class="button" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Reviews List -->
+      <div class="col-md-7">
+        <div class="reviews-container">
+          <h2>Users Review</h2>
+          <div id="reviews-slider" class="reviews-slider">
+            <div id="reviews-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    let currentReviewIndex = 0;
+    let reviews = [];
+
+    function loadReviews() {
+      fetch("http://localhost/carrus(front end)final/review-api/get_reviews.php")
+        .then(response => response.json())
+        .then(data => {
+          reviews = data;
+          if (reviews.length > 0) {
+            displayReview(currentReviewIndex);
+          } else {
+            document.getElementById("reviews-container").innerHTML = "<p>No reviews yet.</p>";
+          }
+        })
+        .catch(error => {
+          console.error("Error loading reviews:", error);
+        });
+    }
+
+    function displayReview(index) {
+      const reviewsContainer = document.getElementById("reviews-container");
+      reviewsContainer.innerHTML = '';
+
+      const review = reviews[index];
+      const reviewElement = document.createElement("div");
+      reviewElement.className = "review";
+      reviewElement.innerHTML = `
+        <p><strong>User:</strong> ${review.username}</p>
+        <p><strong>Rating:</strong> ${review.rating} ★</p>
+        <p><strong>Review:</strong> ${review.reviewText}</p>
+      `;
+      reviewsContainer.appendChild(reviewElement);
+    }
+
+    function showNextReview() {
+      if (reviews.length === 0) return;
+      currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+      displayReview(currentReviewIndex);
+    }
+    function submitReview(event) {
+  event.preventDefault();
+
+  const reviewText = document.getElementById("review-text").value;
+  const rating = document.getElementById("rating").value;
+  const userId = localStorage.getItem("userId");
+
+  if (!userId) {
+    alert("You must be logged in to submit a review.");
+    return;
+  }
+
+  fetch("http://localhost/carrus(front end)final/review-api/add_review.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userId, reviewText, rating })  // ✅ Send userId now
+  })
+    .then(response => response.json())
+    .then(data => {
+      alert(data.message);
+      document.getElementById("review-form").reset();
+      document.getElementById("rating").value = ""; // reset hidden field
+      document.querySelectorAll(".fa-star").forEach(star => star.classList.remove("checked"));
+      loadReviews();
+    })
+    .catch(error => {
+      console.error("Error submitting review:", error);
+      alert("Failed to submit review.");
+    });
+}
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadReviews();
+      setInterval(showNextReview, 5000);
+
+      const stars = document.querySelectorAll("#star-rating .fa-star");
+      const ratingInput = document.getElementById("rating");
+
+      stars.forEach(star => {
+        star.addEventListener("click", () => {
+          const value = star.getAttribute("data-value");
+          ratingInput.value = value;
+
+          stars.forEach(s => {
+            s.classList.remove("checked");
+            if (s.getAttribute("data-value") <= value) {
+              s.classList.add("checked");
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
