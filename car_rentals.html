@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - CARRUS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Car Rental Booking</h1>
+
+    <form id="car-rental-form">
+        <label for="car">Choose Car</label>
+        <select id="car" name="car_id" required>
+            <!-- Optionally, load this dynamically with JavaScript -->
+        </select>
+
+        <label for="driver-option">Driver Option</label>
+        <select id="driver-option" name="driver_option" required>
+            <option value="self-drive">Self-Drive</option>
+            <option value="driver">With Driver</option>
+        </select>
+
+        <label for="location">Your Location</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="subscription-duration">Subscription Duration</label>
+        <select id="subscription-duration" name="subscription_duration" required>
+            <option value="3">3 months</option>
+            <option value="6">6 months</option>
+            <option value="12">12 months</option>
+        </select>
+
+        <label for="offer-code">Offer Code (optional)</label>
+        <input type="text" id="offer-code" name="offer_code">
+
+        <button type="submit">Book Car</button>
+    </form>
+
+    <div id="total-cost">
+        <h2>Total Cost: <span id="cost-value">0</span></h2>
+    </div>
+</div>
+
+<script src="car_rental.js"></script>
+
+</body>
+</html>
