@@ -43,3 +43,8 @@ quicker access and recommendations.
 - Promotions Discounts : The application will feature exclusive offers and
 discounts, allowing users to benefit from special promotions.
 ratings to provide feedback on their rental experience.
+
+# UI/UX design
+<img src="ip project ui/homepage.jpg" width="200">
+
+
