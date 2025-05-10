@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #002244 0%, #041E42 50%, #5D8AA8 100%);
+
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.navbar-logo img {
+    height: 50px;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-links li {
+    display: inline;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    transition: background 0.3s;
+}
+
+.navbar-links a:hover {
+    background-color: #032043;
+    border-radius: 5px;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Dropdown Menu */
+.menu {
+    display: none;
+    flex-direction: column;
+    background-color: #20562A;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s;
+}
+.menu.active {
+    display: block;
+}
+
+.menu a:hover {
+    background-color: #20562A;
+    border-radius: 5px;
+}
+
+
+.container h2 {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #20562A;
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control, .form-select {
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.mybtn{
+    background-color: #070d35;
+    color: white;
+    border-radius: 5%;
+    border-color: #5D8AA8;
+    padding: 10px;
+    margin: 5px;
+}
+
+.mybtn:hover {
+    background-color:white;
+    color: black;
+    border-radius: rgb(8, 8, 51);
+}
+

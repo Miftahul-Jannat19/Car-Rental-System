@@ -1,0 +1,202 @@
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: 
+      linear-gradient(#d0d9f7, rgba(125, 158, 135, 0.234));
+    
+    background-repeat: repeat;
+    background-size: auto;
+    color: #333;
+  }
+  
+  
+  h2 {
+    text-align: center;
+    color: #1e1e1e;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     background: linear-gradient(to right, #002244 0%, #041E42 50%, #5D8AA8 100%);
+
+    padding: 0.8rem 2rem;
+  }
+  
+  .navbar-logo .logo {
+    height: 60px;
+  }
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+    min-width: 150px;
+  }
+  .main-content {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap; /* allows it to stack on small screens */
+  }
+  
+  #form-container, .cars-section {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 700px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+  }
+  
+  input:focus {
+    border-color: #002244;
+    outline: none;
+  }
+  
+  /* Button */
+  button {
+    padding: 0.75rem;
+    background-color: #002244;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #444c54;
+  }
+  
+  /* Cars Section */
+  .cars-section {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .car-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  .car-card {
+    background: linear-gradient(rgba(217, 244, 216, 0.9), rgba(198, 242, 155, 0.9)),
+                url('https://www.transparenttextures.com/patterns/linen.png');
+    background-size: cover;
+    color: #4b3f35;
+    padding: 1.5rem;
+    border: 1px solid #c0a98e;
+    border-radius: 15px;
+    width: 280px;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  .car-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .car-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #cde5db;
+    border-bottom: 1px solid #aad6af;
+    padding-bottom: 0.3rem;
+  }
+  
+  .car-card p {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .car-card p span {
+    font-weight: bold;
+    color: #2f251e;
+    display: inline-block;
+    min-width: 110px;
+  }
+  
+  .car-card::before {
+    content: "🚘";
+    font-size: 2rem;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #97c9b5;
+    border: 1px solid #b6cb9d;
+    border-radius: 50%;
+    padding: 0.3rem;
+  }
+  
+  
+  
+  .car-card h4 {
+    margin-bottom: 0.5rem;
+    color: #307C51;
+  }
+  
+  .car-card p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+  }
+  

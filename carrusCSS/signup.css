@@ -1,0 +1,219 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+   
+    background: url('./carnew.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    padding-top: 80px;
+  }
+  
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   background: linear-gradient(to right, #002244 0%, #041E42 50%, #5D8AA8 100%);
+
+    color: white;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .logo-image {
+    width: 80px;
+    height: auto;
+  }
+  
+  .nav-links a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Layout Wrapper */
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 5%;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  
+  /* Quote Carousel */
+  .quote-carousel {
+    flex: 1;
+    max-width: 30%;
+   
+    background: transparent;
+    color:#002244;
+    font-size: 1.2rem;
+    font-style: italic;
+    padding: 80px;
+    margin-top: 150px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .form-group.half {
+    flex: 1;
+  }
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .form-group.half {
+    flex: 1;
+  }
+  .password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* space for eye icon */
+}
+
+.toggle-eye {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+  .quote {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeInQuote {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Form Container */
+  .container {
+    flex: 1;
+    max-width: 50%;
+    background-color: #e4eae3;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  h2 {
+    text-align: center;
+    color:#002244;
+    margin-bottom: 30px;
+  }
+  
+  /* Form Fields */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    background-color:#002244;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  button:hover {
+    background-color: #002244;
+  }
+  
+  .toggle-btn {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .toggle-btn a {
+    color: #002244;
+    text-decoration: none;
+  }
+  
+  .toggle-btn a:hover {
+    text-decoration: underline;
+  }
+  
+  .terms-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+ 
+  /* Footer */
+  .footer {
+    background-color: #002244;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .quote-carousel,
+    .container {
+      max-width: 100%;
+    }
+  }
+  

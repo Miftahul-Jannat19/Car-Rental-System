@@ -1,0 +1,164 @@
+/* Container styling */
+#drivers-container {
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    max-width: 600px;
+    background-color: #ebf1ee;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header styling for the list */
+#drivers-container h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+/* List container */
+.driver-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual driver list item */
+.driver-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Driver details */
+.driver-details {
+    flex: 1;
+}
+
+.driver-details p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+/* Container for the drivers list */
+#drivers-container {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+#drivers-container h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Unordered list */
+#drivers-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Each list item */
+#drivers-container li {
+    background-color: #f5f5f5;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #04042e;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+#drivers-container li:hover {
+    background-color: #e0f7e9;
+}
+.driver-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Left: Form */
+.driver-form {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Right: Driver List */
+#drivers-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#drivers-container h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#drivers-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+#drivers-container li {
+    background-color: #f5f5f5;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #1b0a41;
+    transition: background-color 0.3s ease;
+}
+
+#drivers-container li:hover {
+    background-color: #e0f7e9;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+}
+.btn{
+    background-color: #04042e;
+}
+.btn:hover{
+    background-color: rgb(150, 157, 185);
+    
+    color: black;
+}

@@ -1,0 +1,19 @@
+
+  #faq .faq-header {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+
+  #faq.faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      
+  }
+
+  #faq .accordion-button:not(.collapsed) {
+      color: #002244;
+      background-color: #eff5f0;
+  }
+  
