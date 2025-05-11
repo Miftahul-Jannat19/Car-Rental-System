@@ -44,7 +44,6 @@ quicker access and recommendations.
 discounts, allowing users to benefit from special promotions.
 ratings to provide feedback on their rental experience.
 
-# UI/UX design
-<img src="ip project ui/homepage.jpg" width="200">
+
 
 
