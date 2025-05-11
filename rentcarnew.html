@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rent a Car - CARRUS</title>
+  <link rel="stylesheet" href="carrusCSS/rent.css" />
+  <link rel="stylesheet" href="carrusCSS/booking.css" >
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <h1 style="
+  font-family: "Underdog", system-ui;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #9fc2e7; /* Blue */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+">
+  Carr<span style="color: #335778;">Us</span>
+</h1></div>
+    <div class="nav-links">
+      <a href="./home.html">Home</a>
+      <a href="./profile.html">My Profile</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <h2>Available Cars for Rent</h2>
+    <div class="car-list" id="car-list"></div>
+  </div>
+
+  <!-- Success Message -->
+  <div id="message"></div>
+
+  <section id="new">
+    <div class="mybtn">
+    <button onclick="window.location.href='booking.html'">Confirm Booking</button>
+  </div>
+  </section>
+  
+      
+  
+  
+  <!-- JavaScript -->
+  <script>
+    window.onload = function () {
+      fetch('http://localhost/carrus(front end)final/fetch_cars.php')
+        .then(response => response.json())
+        .then(data => {
+          const carList = document.getElementById("car-list");
+          if (data.length === 0) {
+            carList.innerHTML = "<p>No cars available at the moment.</p>";
+            return;
+          }
+
+          data.forEach(car => {
+            const carCard = document.createElement("div");
+            carCard.className = "car-card";
+            carCard.innerHTML = `
+              <h3>${car.make} ${car.model} (${car.year})</h3>
+              <p><strong>Reg. No:</strong> ${car.registrationNumber}</p>
+              <p><strong>Category:</strong> ${car.category}</p>
+              <p><strong>Seats:</strong> ${car.seatCapacity}</p>
+              <button onclick="rentCar(${car.id})">Rent This Car</button>
+            `;
+            carList.appendChild(carCard);
+          });
+        });
+    };
+
+    function rentCar(carId) {
+      fetch('http://localhost/carrus(front end)final/rent_car.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ car_id: carId })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const messageBox = document.getElementById("message");
+        messageBox.style.textAlign = "center";
+        messageBox.style.fontWeight = "bold";
+        messageBox.style.marginTop = "20px";
+        messageBox.style.color = data.success ? "green" : "red";
+        messageBox.textContent = data.success
+          ? "✅ Car rented successfully!"
+          : "❌ Error: " + data.message;
+      });
+    }
+  </script>
+</body>
+</html>
