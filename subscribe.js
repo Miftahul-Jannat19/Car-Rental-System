@@ -23,20 +23,13 @@ function calculatePrice() {
 function simulatePayment(event) {
   event.preventDefault();
 
-  const data = {
-    carId: document.getElementById('car').value,
-    startDate: document.getElementById('start-date').value,
-    duration: document.getElementById('duration').value,
-    address: document.getElementById('address').value,
-    driver: document.getElementById('driver').value,
-    price: document.getElementById('amount').value,
-    transaction: document.getElementById('transaction-number').value
-  };
+  const form = document.getElementById('subscription-form');
+  const formData = new FormData(form);
+  formData.append("transaction", document.getElementById('transaction-number').value); // Add missing field
 
-  fetch('process_subscription.php', {  // Correct filename here
+  fetch('process_subscription.php', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
+    body: formData
   })
   .then(res => res.json())
   .then(res => {
