@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Car Registration - CARRUS</title>
+  <link rel="stylesheet" href="carrusCSS/regcar.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+     <h1 style="
+  font-family: Underdog, system-ui;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #9fc2e7; /* Blue */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+">
+  Carr<span style="color: #335778;">Us</span>
+</h1>
+    </div>
+    <div class="nav-links">
+      <a href="./home.html">Back</a>
+    </div>
+  </nav>
+
+  <!-- Main Flex Container -->
+  <div class="main-content">
+    
+    <!-- Car Registration Form -->
+    <div class="container" id="form-container">
+      <h2>Car Registration</h2>
+      <form id="car-registration-form">
+        <div class="form-group">
+          <label for="registration-number">Registration Number</label>
+          <input type="text" id="registration-number" name="registrationNumber" required>
+        </div>
+    
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" required>
+          </div>
+          <div class="form-group">
+            <label for="seat-capacity">Seat Capacity</label>
+            <input type="number" id="seat-capacity" name="seatCapacity" required>
+          </div>
+        </div>
+    
+        <div class="form-row">
+          <div class="form-group">
+            <label for="make">Make</label>
+            <input type="text" id="make" name="make" required>
+          </div>
+          <div class="form-group">
+            <label for="model">Model</label>
+            <input type="text" id="model" name="model" required>
+          </div>
+          <div class="form-group">
+            <label for="year">Year</label>
+            <input type="text" id="year" name="year" required>
+          </div>
+        </div>
+    
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <!-- Car List Display -->
+    <!-- Car List Display -->
+<div class="container cars-section">
+    <h2>Registered Cars</h2>
+    <button id="load-cars">Load Registered Cars</button>
+    <div id="single-car-display" class="car-cards-container"></div>
+    <button id="next-car" style="display:none; margin-top: 10px;">Next</button>
+</div>
+
+  </div>
+
+  <script src="car.js"></script>
+</body>
+</html>

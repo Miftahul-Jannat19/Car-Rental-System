@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Car Booking - CARRUS</title>
+  <link rel="stylesheet" href="carrusCSS/booking.css" />
+</head>
+<body>
+  <h2>Book Your Car</h2>
+  <div class="booking-container">
+    <form id="booking-form" method="POST" action="submit_booking.php" onsubmit="calculateTotal()">
+
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for="address">Pickup Address:</label>
+        <input type="text" id="address" name="address" required />
+      </div>
+
+      <!-- Driver -->
+      <div class="form-group">
+        <label for="driver">Need a Driver?</label>
+        <select id="driver" name="driver">
+          <option value="self-drive">Self-Drive</option>
+          <option value="yes">Yes (500tk)</option>
+        </select>
+      </div>
+
+      <!-- Rent Duration -->
+      <div class="form-group">
+        <label for="days">Number of Days:</label>
+        <input type="number" id="days" name="days" min="1" value="1" required />
+      </div>
+
+      <!-- Offer Code -->
+      <div class="form-group">
+        <label for="offer">Offer Code:</label>
+        <input type="text" id="offer" name="offer" placeholder="Enter offer code (e.g., OFF10)" />
+      </div>
+
+      <!-- Total Amount -->
+      <div class="form-group">
+        <label>Total Amount to Pay:</label>
+        <input type="text" id="totalAmount" name="totalAmount" readonly value="1000tk" />
+      </div>
+
+      <!-- Payment Method -->
+      <div class="form-group">
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment">
+          <option value="bikash">Bikash</option>
+          <option value="card">Credit/Debit Card</option>
+          <option value="cash">Cash on Pickup</option>
+        </select>
+      </div>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div id="result" class="success-message" style="display: none;"></div>
+  </div>
+
+  <script>
+    const baseRate = 1000; // per day
+    const driverCharge = 500;
+    const offers = {
+      OFF10: 0.10, // 10% off
+      OFF20: 0.20  // 20% off
+    };
+
+    const daysInput = document.getElementById("days");
+    const driverInput = document.getElementById("driver");
+    const offerInput = document.getElementById("offer");
+    const totalAmountInput = document.getElementById("totalAmount");
+    const bookingForm = document.getElementById("booking-form");
+
+    function calculateTotal() {
+      let days = parseInt(daysInput.value) || 1;
+      let total = baseRate * days;
+
+      if (driverInput.value === "yes") {
+        total += driverCharge;
+      }
+
+      const code = offerInput.value.trim().toUpperCase();
+      const discount = offers[code] || 0;
+      total = total - total * discount;
+
+      totalAmountInput.value = "tk" + total.toFixed(2);
+    }
+
+    // Calculate total on input changes
+    daysInput.addEventListener("input", calculateTotal);
+    driverInput.addEventListener("change", calculateTotal);
+    offerInput.addEventListener("input", calculateTotal);
+
+    
+
+    // Initial calculation
+    calculateTotal();
+  </script>
+</body>
+</html>
