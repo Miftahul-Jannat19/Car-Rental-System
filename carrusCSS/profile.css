@@ -1,4 +1,3 @@
-/* General Styles */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #e2ede9;
@@ -11,19 +10,13 @@ a {
   color: inherit;
 }
 
-/* Navbar Styles */
 .navbar {
   background: linear-gradient(to right, #002244 0%, #041E42 50%, #5D8AA8 100%);
-
   color: white;
   display: flex;
   justify-content: space-between;
   padding: 15px 30px;
   align-items: center;
-}
-
-.navbar-logo img {
-  height: 40px;
 }
 
 .nav-links a {
@@ -33,12 +26,11 @@ a {
 }
 
 .nav-links a:hover {
-  color: #42434f;
+  color: #cccccc;
 }
 
-/* Profile Container */
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
   background: linear-gradient(to right, #98C0D2, white);
@@ -54,42 +46,67 @@ a {
   margin-bottom: 30px;
 }
 
-/* User Info */
-#user-info {
-  font-size: 16px;
-  color: #555;
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.default-profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+  background-color: #ccc;
 }
 
 #user-info p {
+  margin: 8px 0;
+}
+
+.edit-button {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #002244;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+
+.stats-summary {
+  background-color: #dce9f3;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+#bookings-container {
+  border-top: 1px solid #aaa;
+  padding-top: 20px;
+}
+
+.booking-card {
+  background-color: #fff;
+  padding: 15px;
   margin-bottom: 15px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-#user-info strong {
-  color: #333;
+.booking-card p {
+  margin: 5px 0;
 }
 
-#user-info span {
-  color: #555;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .navbar {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
-
-  .nav-links {
-      margin-top: 10px;
-  }
-
-  .nav-links a {
-      margin: 10px 0;
-  }
-
-  .container {
-      padding: 15px;
-      margin: 20px;
-  }
+.cancel-btn {
+  background-color: #b91c1c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
 }

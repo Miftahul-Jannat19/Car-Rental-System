@@ -128,3 +128,17 @@ button:hover {
   margin: 10px 0;
   background-color: #f9f9f9;
 }
+.subscription-history table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.subscription-history th, .subscription-history td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.subscription-history th {
+  background-color: #f2f2f2;
+}
