@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile - CARRUS</title>
+  <link rel="stylesheet" href="carrusCSS/profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <h1 style="
+      margin-left: 10px;
+      font-family: "Underdog", system-ui;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #9fc2e7; /* Blue */
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    ">
+      Carr<span style="color: #335778;">Us</span>
+    </h1>
+    </div>
+    <div class="nav-links">
+      <a href="./profile.html">Profile</a>
+      <a href="./home.html">Home</a>
+      <a href="./login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Profile Section -->
+  <div class="container" id="profile-container">
+    <h2 id="profile-title">User Profile</h2>
+    
+    <!-- User Information -->
+    <div id="user-info">
+      <p><strong>Name:</strong> <span id="user-name"></span></p>
+      <p><strong>Email:</strong> <span id="user-email"></span></p>
+      <p><strong>Phone:</strong> <span id="user-phone"></span></p>
+      <p><strong>NID:</strong> <span id="user-nid"></span></p>
+    </div>
+  </div>
+
+  <!-- Script to fetch and display user info -->
+  <script>
+    window.addEventListener("DOMContentLoaded", async () => {
+      const userId = localStorage.getItem("userId");
+  
+      if (!userId) {
+        alert("Please log in first.");
+        window.location.href = "./login.html";
+        return;
+      }
+  
+      try {
+        const response = await fetch(`get_user.php?id=${userId}`);
+  
+        if (!response.ok) {
+          throw new Error("Failed to load profile data.");
+        }
+  
+        const user = await response.json();
+        if (user.error) {
+          throw new Error(user.error);
+        }
+  
+        document.getElementById("user-name").innerText = user.name;
+        document.getElementById("user-email").innerText = user.email;
+        document.getElementById("user-phone").innerText = user.phone;
+        document.getElementById("user-nid").innerText = user.nid;
+  
+      } catch (err) {
+        console.error(err);
+        alert("Error loading profile.");
+      }
+    });
+  </script>
+  
+
+</body>
+</html>

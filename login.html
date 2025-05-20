@@ -39,5 +39,33 @@
     </form>
   </div>
 
+  <div class="stats-container">
+  <div class="stat-card">
+    <h3>Total Users</h3>
+    <p>1,254</p>
+  </div>
+  <div class="stat-card">
+    <h3>Logins Today</h3>
+    <p>86</p>
+  </div>
+  <div class="stat-card">
+    <h3>Active Sessions</h3>
+    <p>12</p>
+  </div>
+</div>
+
+
+<script>
+  fetch('stats.php')
+    .then(res => res.json())
+    .then(data => {
+      document.querySelectorAll('.stat-card')[0].querySelector('p').textContent = data.total_users;
+      document.querySelectorAll('.stat-card')[1].querySelector('p').textContent = data.logins_today;
+      document.querySelectorAll('.stat-card')[2].querySelector('p').textContent = data.active_sessions;
+    })
+    .catch(err => console.error('Error fetching stats:', err));
+</script>
+
+
 </body>
 </html>
