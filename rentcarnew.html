@@ -76,6 +76,7 @@
       fetch('http://localhost/carrus(front end)final/rent_car.php', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
         body: JSON.stringify({ car_id: carId })
       })
       .then(response => response.json())
